@@ -77,15 +77,22 @@ public class TennisGame {
 					return "player2 wins";
 			}
 			
-			if (player1Points >= 4 && player1Points == player2Points)
+			if (player1Points >= 3 && player1Points == player2Points)
+				//before: if (player1Points >= 4 && player1Points == player2Points)
+				//Should be at least 3 points, not 4
 				return "deuce";
 			
 			if (player1Points >= 4 && player1Points - player2Points == 1)
 				return "player1 has advantage";
 			
-			if (player2Points > 4 && player2Points - player1Points == 1)
+			if (player2Points >= 4 && player2Points - player1Points == 1)
+				//before: if (player2Points > 4 && player2Points - player1Points == 1)
+				//Should be >=, not just >
 				return "player2 has advantage";							
 			
-			return  player2Score + " - " + player1Score ;
+			return  player1Score + " - " + player2Score ; 
+			//before: return  player2Score + " - " + player1Score ;
+			//Wrong order of players in score fixed
+			
 	}
 }
